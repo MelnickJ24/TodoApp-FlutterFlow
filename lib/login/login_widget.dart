@@ -1082,6 +1082,23 @@ class _LoginWidgetState extends State<LoginWidget>
                       ),
                   ],
                 ),
+                Text(
+                  'By Jordan Melnick',
+                  style: FlutterFlowTheme.of(context).labelSmall.override(
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).labelSmall.fontStyle,
+                        ),
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).labelSmall.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelSmall.fontStyle,
+                      ),
+                ),
               ],
             ),
           ),
