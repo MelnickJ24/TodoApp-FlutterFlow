@@ -8,6 +8,37 @@ export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
+class ZenQuotesCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Zen Quotes',
+      apiUrl: 'https://zenquotes.io/api/random/',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? getQuote(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].q''',
+      ));
+  static String? getAuthor(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].a''',
+      ));
+  static String? getHeader(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].h''',
+      ));
+}
+
 class GetZenQuoteCall {
   static Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
